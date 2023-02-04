@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from products.models import ProductCategory, Products
 
+
 # Create your views here.
 def index(request):
     return render(request, 'products/index.html')
 
 
-def products(request):
+def products(request, category_id=None):
     categories = ProductCategory.objects.all()
-    products = Products.objects.all()
+    products = Products.objects.filter(category=category_id) if category_id else Products.objects.all()
     context = {
         'categories': categories,
         'products': products,
@@ -22,4 +23,5 @@ def product(request, product_id):
         'product': product,
 
     }
+    return render(request, 'products/product.html', context)
 

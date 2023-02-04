@@ -5,4 +5,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('products/', products, name='products'),
     path('products/<int:product_id>', product, name='product'),
+    path('products/category/<int:category_id>', products, name='category')
+
 ]
