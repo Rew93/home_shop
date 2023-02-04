@@ -25,3 +25,10 @@ def product(request, product_id):
     }
     return render(request, 'products/product.html', context)
 
+
+def about_us(request):
+    return render(request, 'products/aboutus.html')
+
+
+def contact(request):
+    return render(request, 'products/contact.html')
